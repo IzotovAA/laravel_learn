@@ -14,6 +14,7 @@
     <nav class="mt-5 mb-5">
         <ul class="flex flex-row items-center gap-4">
             <li><a href="{{ route('main.index') }}">Main page</a></li>
+            <li><a href="{{ route('home') }}">Home page</a></li>
             <li><a href="{{ route('admin.post.index') }}">Admin panel page</a></li>
             <li><a href="{{ route('post.index') }}">Posts page</a></li>
             <li><a href="{{ route('contact.index') }}">Contacts page</a></li>
