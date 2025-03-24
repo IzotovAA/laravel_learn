@@ -14,6 +14,10 @@ class DestroyController extends BaseController
     {
         $post->delete();
 
+        if (session('post_url')) {
+            return redirect(session('post_url'));
+        }
+
         return redirect()->route('post.index');
     }
 }

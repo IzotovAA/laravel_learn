@@ -11,7 +11,7 @@
             @enderror
         </label>
         <label class="flex flex-col mb-3">Content
-            <textarea name="content" placeholder="Content" class="border mt-1 pl-2 p-1 h-[100px] rounded-[5px]">{{old('post_content')}}</textarea>
+            <textarea name="content" placeholder="Content" class="border mt-1 pl-2 p-1 h-[100px] rounded-[5px]">{{old('content')}}</textarea>
             @error('content')
             <p class="text-red-500 mt-1">{{ $message }}</p>
             @enderror
@@ -33,13 +33,19 @@
                             value="{{$category->id}}">{{$category->title}}</option>
                     @endforeach
                 </select>
+                @error('category_id')
+                <p class="text-red-500 mt-1">{{ $message }}</p>
+                @enderror
             </label>
             <label class="flex">Select tags:
-                <select multiple class="ml-3" name="tags_id[]">
+                <select multiple class="h-min p-2 ml-3" name="tags_id[]">
                     @foreach($tags as $tag)
                         <option value="{{$tag->id}}">{{$tag->title}}</option>
                     @endforeach
                 </select>
+                @error('tags_id')
+                <p class="text-red-500 ml-2">{{ $message }}</p>
+                @enderror
             </label>
         </div>
         <button class="w-[150px] border p-1 bg-blue-500 text-white rounded-[10px] font-semibold cursor-pointer" type="submit" >Create</button>

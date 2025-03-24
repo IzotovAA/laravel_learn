@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="w-[80vw] flex flex-col gap-5 m-auto p-5 border rounded-[10px]">
+    <div class="w-[60vw] flex flex-col gap-5 m-auto p-5 border rounded-[10px]">
         <div class="">{{ __('Dashboard') }}</div>
 
         @guest

@@ -19,7 +19,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Post'], function () {
     Route::get('/posts/{post}/edit', EditController::class)->name('post.edit');
     Route::patch('/posts/{post}', UpdateController::class)->name('post.update');
     Route::delete('/posts/{post}', DestroyController::class)->name('post.destroy');
-    Route::get('/filter', FilterController::class)->name('post.filter');
+//    Route::get('/filter', FilterController::class)->name('post.filter');
+//    Route::get('/posts', ClearController::class)->name('post.clear');
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {

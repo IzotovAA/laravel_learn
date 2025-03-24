@@ -13,11 +13,11 @@
             @endforeach
         </div>
         <div class="flex flex-row mt-3">
-            <a href="{{route('post.index')}}"
+            <a href="{{ url($request->session()->get('post_url')) }}"
                class="mr-5 p-2 pl-5 pr-5 bg-blue-500 text-white rounded-[10px] font-semibold">Back to posts</a>
-            <a href="{{route('post.edit', $post->id)}}"
+            <a href="{{ route('post.edit', $post->id) }}"
                class="mr-5 p-2 pl-5 pr-5 bg-blue-500 text-white rounded-[10px] font-semibold">Edit</a>
-            <form action="{{ route('post.destroy', $post->id) }}" method="post" class="">
+            <form action="{{ route('post.destroy', $post->id) }}" method="post">
                 @csrf
                 @method('DELETE')
                 <button type="submit"
