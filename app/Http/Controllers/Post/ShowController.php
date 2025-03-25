@@ -13,8 +13,6 @@ class ShowController extends BaseController
      */
     public function __invoke(Post $post, Request $request): View
     {
-//        [$category, $tagsToShow] = $this->service->show($post);
-
         $category = $post->category;
         $tagsToShow = $post->tags->pluck('title')->toArray();
 

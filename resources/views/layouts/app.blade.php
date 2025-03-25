@@ -20,7 +20,19 @@
 <div id="app" class="p-5">
     <nav class="">
         <div class="flex justify-between items-center">
-            <a class="" href="{{ url('/') }}">Main page</a>
+            <ul class="flex flex-row items-center gap-4">
+                @guest
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('contact.index') }}">Contacts page</a></li>
+                    <li><a href="{{ route('about.index') }}">About page</a></li>
+                @else
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('admin.post.index') }}">Admin panel page</a></li>
+                    <li><a href="{{ route('post.index') }}">Posts page</a></li>
+                    <li><a href="{{ route('contact.index') }}">Contacts page</a></li>
+                    <li><a href="{{ route('about.index') }}">About page</a></li>
+                @endguest
+            </ul>
 
             <div class="">
                 <!-- Right Side Of Navbar -->
@@ -39,8 +51,8 @@
                             </li>
                         @endif
                     @else
-                        <li class="">
-                            <div class="text-center mb-1 font-semibold">
+                        <li class="flex gap-5 items-center">
+                            <div class="text-center font-semibold">
                                 <a href="{{ route('home') }}" role="button">
                                     {{ Auth::user()->name }}
                                 </a>

@@ -1,6 +1,7 @@
-@extends('layouts.main')
+@extends('layouts.app')
 @section('content')
-    <form action="{{route('post.update', $post->id)}}" method="post" class="w-[500px] block border rounded-[5px] p-5">
+    <form action="{{route('post.update', $post->id)}}" method="post"
+          class="w-[500px] block border rounded-[5px] p-5 mx-auto">
         @csrf
         @method('PATCH')
         <div class="mb-2">Post id: {{$post->id}}</div>

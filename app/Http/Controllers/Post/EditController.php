@@ -14,8 +14,6 @@ class EditController extends BaseController
      */
     public function __invoke(Post $post): View
     {
-//        [$categories, $tags, $tagsIdToSelect] = $this->service->edit($post);
-
         $categories = Category::all();
         $tags = Tag::all();
         $tagsIdToSelect = $post->tags->pluck('id')->toArray();

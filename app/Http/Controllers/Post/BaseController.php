@@ -9,5 +9,8 @@ class BaseController extends Controller
 {
     public function __construct(
         protected Service $service
-    ){}
+    )
+    {
+        $this->middleware('auth');
+    }
 }

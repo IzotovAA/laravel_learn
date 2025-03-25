@@ -1,12 +1,12 @@
-@extends('layouts.main')
+@extends('layouts.app')
 @section('content')
-    <div class="w-[500px] border rounded-[5px] p-3">
-        <div class="mb-1"><span class="font-semibold">Post id:</span> {{$post->id}}</div>
-        <div class="mb-1"><span class="font-semibold">Title:</span> {{$post->title}}</div>
-        <div class="mb-1"><span class="font-semibold">Content:</span> {{$post->content}}</div>
-        <div class="mb-1"><span class="font-semibold">Image:</span> {{$post->image}}</div>
-        <div class="mb-1"><span class="font-semibold">Likes:</span> {{$post->likes}}</div>
-        <div class="mb-1"><span class="font-semibold">Category:</span> {{$category->title}}</div>
+    <div class="w-[500px] border rounded-[5px] p-5 mx-auto">
+        <div class="mb-2"><span class="font-semibold">Post id:</span> {{$post->id}}</div>
+        <div class="mb-2"><span class="font-semibold">Title:</span> {{$post->title}}</div>
+        <div class="mb-2"><span class="font-semibold">Content:</span> {{$post->content}}</div>
+        <div class="mb-2"><span class="font-semibold">Image:</span> {{$post->image}}</div>
+        <div class="mb-2"><span class="font-semibold">Likes:</span> {{$post->likes}}</div>
+        <div class="mb-2"><span class="font-semibold">Category:</span> {{$category->title}}</div>
         <div class="flex gap-2"><span class="font-semibold">Tags:</span>
             @foreach($tagsToShow as $tag)
                 <div>{{$tag}}</div>

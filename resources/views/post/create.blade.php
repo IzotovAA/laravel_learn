@@ -1,17 +1,18 @@
-@extends('layouts.main')
+@extends('layouts.app')
 @section('content')
-    <form action="{{route('post.store')}}" method="post" class="w-[500px] block border p-5 rounded-[5px]">
+    <form action="{{route('post.store')}}" method="post" class="w-[500px] block border p-5 mx-auto rounded-[5px]">
         @csrf
         <label class="flex flex-col mb-3">Title
             <input
                 value="{{old('title')}}"
                 type="text" name="title" placeholder="Title" class="border mt-1 pl-2 p-1 rounded-[5px]">
             @error('title')
-                <p class="text-red-500 mt-1">{{ $message }}</p>
+            <p class="text-red-500 mt-1">{{ $message }}</p>
             @enderror
         </label>
         <label class="flex flex-col mb-3">Content
-            <textarea name="content" placeholder="Content" class="border mt-1 pl-2 p-1 h-[100px] rounded-[5px]">{{old('content')}}</textarea>
+            <textarea name="content" placeholder="Content"
+                      class="border mt-1 pl-2 p-1 h-[100px] rounded-[5px]">{{old('content')}}</textarea>
             @error('content')
             <p class="text-red-500 mt-1">{{ $message }}</p>
             @enderror
@@ -48,6 +49,8 @@
                 @enderror
             </label>
         </div>
-        <button class="w-[150px] border p-1 bg-blue-500 text-white rounded-[10px] font-semibold cursor-pointer" type="submit" >Create</button>
+        <button class="w-[150px] border p-1 bg-blue-500 text-white rounded-[10px] font-semibold cursor-pointer"
+                type="submit">Create
+        </button>
     </form>
 @endsection

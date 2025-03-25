@@ -1,5 +1,6 @@
 @if ($paginator->hasPages())
     <nav class="d-flex justify-items-center justify-content-between">
+        <h1>Test test</h1>
         <div class="d-flex justify-content-between flex-fill d-sm-none">
             <ul class="pagination">
                 {{-- Previous Page Link --}}

@@ -1,8 +1,18 @@
-@extends('layouts.main')
+@extends('layouts.app')
 @section('content')
-    <div class="w-[500px] border rounded-[5px] p-3 mb-5">
-        <h1 class="mb-2 font-semibold text-center">Posts filter</h1>
-        <form action="{{route('post.index')}}" method="get" class="flex flex-col gap-3 mb-2">
+    <div class="w-[500px] border rounded-[5px] p-5 mb-5 mx-auto">
+        <h1 class="mb-2 font-semibold text-center cursor-pointer" onclick="toggle()">Posts filter</h1>
+        <form action="{{route('post.index')}}" method="get" class="flex flex-col gap-3 mb-2
+        @if(!empty($data))
+            @if($data['title'] || $data['content'] || $data['category_id'])
+                block
+            @else
+                hidden
+            @endif
+        @else
+            hidden
+        @endif
+         " id="filter">
             <label class="flex flex-col">Filter by title:
                 <input type="text"
                        name="title"
@@ -43,15 +53,17 @@
                 >Filter
                 </button>
                 <a class="w-fit px-5 py-2 bg-blue-500 text-white rounded-[10px] font-semibold cursor-pointer"
-                        href="{{ route('post.index') }}"
+                   href="{{ route('post.index') }}"
                 >
                     Clear filter
                 </a>
             </div>
         </form>
+
+
     </div>
 
-    <div class="w-[500px] border rounded-[5px] p-3">
+    <div class="w-[500px] border rounded-[5px] p-5 mx-auto">
         <ul> Posts:
             @foreach($posts as $post)
                 <li class="mb-2 mt-2">
@@ -64,9 +76,13 @@
                class="w-[300px] border p-2 pl-5 pr-5 bg-blue-500 text-white rounded-[10px] font-semibold">
                 Create new post
             </a>
-            {{--            <a href="{{ route('post.filter') }}"--}}
-            {{--               class="w-[300px] border p-2 pl-5 pr-5 ml-2 bg-blue-500 text-white rounded-[10px] font-semibold">Filter</a>--}}
+
         </div>
     </div>
-    <div class="w-[500px] p-3">{{$posts->withQueryString()->links()}}</div>
+    <div class="w-[500px] p-3 mx-auto">{{$posts->withQueryString()->onEachSide(1)->links()}}</div>
+    <script>
+        function toggle() {
+            document.getElementById('filter').classList.toggle('hidden');
+        }
+    </script>
 @endsection

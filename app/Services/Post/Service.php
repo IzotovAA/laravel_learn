@@ -38,23 +38,9 @@ class Service
     {
         $url = $request->session()->get('post_url');
         $lastPage = $posts->lastPage();
-        $url = preg_replace("~page=[\d+]~", 'page=' . $lastPage, $url);
+        $url = preg_replace("~page=\d+~", 'page=' . $lastPage, $url);
         $request->session()->put('post_url', $url);
     }
-
-//    public function checkCurrentPage(LengthAwarePaginator $posts, FilterRequest $request): string
-//    {
-//        if ($posts->currentPage() > $posts->lastPage()) {
-//            $url = $request->session()->get('post_url');
-//            $lastPage = $posts->lastPage();
-//            $url = preg_replace("~page=[\d+]~", 'page=' . $lastPage, $url);
-//            $request->session()->put('post_url', $url);
-//
-//            return $url;
-//        }
-//
-//        return '';
-//    }
 
     // ненужный сервис, не правильное название
 //    public function edit(Post $post): array
