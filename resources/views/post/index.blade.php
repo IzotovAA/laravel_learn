@@ -79,7 +79,7 @@
 
         </div>
     </div>
-    <div class="w-[500px] p-3 mx-auto">{{$posts->withQueryString()->onEachSide(1)->links()}}</div>
+    <div class="w-[500px] p-3 mx-auto">{{$posts->links()}}</div>
     <script>
         function toggle() {
             document.getElementById('filter').classList.toggle('hidden');

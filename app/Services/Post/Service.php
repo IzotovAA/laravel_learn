@@ -3,13 +3,8 @@
 namespace App\Services\Post;
 
 use App\Http\Requests\Post\FilterRequest;
-use App\Models\Category;
 use App\Models\Post;
-use App\Models\Tag;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Session;
 
 class Service
 {
@@ -36,10 +31,22 @@ class Service
 
     public function setCurrentPage(LengthAwarePaginator $posts, FilterRequest $request): void
     {
-        $url = $request->session()->get('post_url');
-        $lastPage = $posts->lastPage();
-        $url = preg_replace("~page=\d+~", 'page=' . $lastPage, $url);
+//        $url = $request->session()->get('post_url');
+//        $lastPage = $posts->lastPage();
+//        $url = preg_replace("~page=\d+~", 'page=' . $lastPage, $url);
+        $url = $posts->url($posts->lastPage());
         $request->session()->put('post_url', $url);
+    }
+
+    public function validateCurrentPage(LengthAwarePaginator $posts, FilterRequest $request): bool
+    {
+        if ($posts->currentPage() > $posts->lastPage()) {
+            $this->setCurrentPage($posts, $request);
+
+            return false;
+        }
+
+        return true;
     }
 
     // ненужный сервис, не правильное название

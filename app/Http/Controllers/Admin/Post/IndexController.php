@@ -18,11 +18,15 @@ class IndexController extends BaseController
 {
     private PostPipeline $pipeline;
 
+    // рукожопый вариант реализации контроллера, пайплайн класс создаётся напрямую в контроллере
+    // по-нормальному надо делать так, что бы пайплайн класс приходил как параметр либо в конструктор, либо напрямую в метод
+    // пример нормальной реализации в контроллере Post/indexController.php
     public function __construct(Service $service)
     {
         parent::__construct($service);
 
         $this->middleware('auth');
+        $this->middleware('adminPanel');
 
         $this->pipeline = new PostPipeline([
             TitleFilter::class,
