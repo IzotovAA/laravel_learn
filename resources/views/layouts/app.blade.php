@@ -27,7 +27,11 @@
                     <li><a href="{{ route('about.index') }}">About page</a></li>
                 @else
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="{{ route('admin.post.index') }}">Admin panel page</a></li>
+
+                    @can('view', auth()->user())
+                        <li><a href="{{ route('admin.post.index') }}">Admin panel page</a></li>
+                    @endcan
+
                     <li><a href="{{ route('post.index') }}">Posts page</a></li>
                     <li><a href="{{ route('contact.index') }}">Contacts page</a></li>
                     <li><a href="{{ route('about.index') }}">About page</a></li>
