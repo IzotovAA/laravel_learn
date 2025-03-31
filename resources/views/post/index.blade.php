@@ -2,7 +2,9 @@
 @section('content')
     <div class="w-[500px] border rounded-[5px] p-5 mb-5 mx-auto">
         <h1 class="mb-2 font-semibold text-center cursor-pointer" onclick="toggle()">Posts filter</h1>
-        <form action="{{route('post.index')}}" method="get" class="flex flex-col gap-3 mb-2
+        <form action="{{route('post.index')}}" method="get"
+              id="filter"
+              class="flex flex-col gap-3 mb-2
         @if(!empty($data))
             @if($data['title'] || $data['content'] || $data['category_id'])
                 block
@@ -12,7 +14,7 @@
         @else
             hidden
         @endif
-         " id="filter">
+         ">
             <label class="flex flex-col">Filter by title:
                 <input type="text"
                        name="title"

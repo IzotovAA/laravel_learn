@@ -14,6 +14,14 @@ Route::group(['namespace' => 'App\Http\Controllers\Post'], function () {
     Route::delete('/posts/{post}', DestroyController::class)->name('post.destroy');
 });
 
+//Route::group(['namespace' => 'App\Http\Controllers\Api', 'prefix' => 'api'], function () {
+//    Route::get('/posts', IndexController::class)->name('api.post.index');
+//    Route::post('/posts', StoreController::class);
+//    Route::get('/posts/{post}', ShowController::class);
+//    Route::patch('/posts/{post}', UpdateController::class);
+//    Route::delete('/posts/{post}', DestroyController::class);
+//});
+
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
     Route::group(['namespace' => 'Post'], function () {
         Route::get('/posts', IndexController::class)->name('admin.post.index');
@@ -24,5 +32,4 @@ Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/contacts', [ContactController::class, 'index'])->name('contact.index');
 
 Auth::routes();
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
