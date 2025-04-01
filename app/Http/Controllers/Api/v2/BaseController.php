@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\v2;
 
 use App\Http\Controllers\Controller;
-use App\Services\Api\Service;
+use App\Services\Api\v2\Service;
 
 class BaseController extends Controller
 {

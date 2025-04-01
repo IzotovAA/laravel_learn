@@ -14,6 +14,17 @@ class PostResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        $tags = $this->resource->tags->pluck('title')->toArray();
+        $tags = join(', ', $tags);
+
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'content' => $this->content,
+            'category' => $this->resource->category->title,
+            'image' => $this->image,
+            'likes' => $this->likes,
+            'tags' => $tags,
+        ];
     }
 }

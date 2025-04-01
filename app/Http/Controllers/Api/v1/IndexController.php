@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\v1;
 
-use App\Http\Requests\Api\FilterRequest;
+use App\Http\Requests\Api\v1\FilterRequest;
 use App\Http\Resources\Post\PostResource;
 use App\Models\Post;
 use App\Pipelines\PostPipeline;

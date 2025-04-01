@@ -13,7 +13,7 @@ class Post extends Model
 {
     use SoftDeletes;
     use HasFactory;
-    use Filterable;
+//    use Filterable;
 
     protected $table = 'posts';
     protected $guarded = [];
