@@ -34,7 +34,6 @@ class ImportJsonPlaceholderCommand extends Command
         try {
             DB::beginTransaction();
 
-//            $response = $import->client->request('GET', 'posts');
             $response = $import->client->request('GET', 'posts');
             $data = json_decode($response->getBody()->getContents());
 

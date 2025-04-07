@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Components\ImportDataClient;
+use App\Models\Post;
 use App\Models\User;
 use App\Pipelines\Filters\CategoryIdFilter;
 use App\Pipelines\Filters\ContentFilter;
