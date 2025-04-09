@@ -13,13 +13,16 @@ class Tag extends Model
     protected $table = 'tags';
     protected $guarded = [];
 
-//    public function posts(): BelongsToMany
-//    {
-//        return $this->belongsToMany(Post::class);
-//    }
-
-    public function posts(): HasMany
+    // в данном отношении ни в постах ни в тагах нет айди друг друга, отношения прописаны в третьей таблице post_tag
+    // поэтому используем отношение tag Belongs posts, у тега может быть много постов, поэтому BelongsToMany
+    public function posts(): BelongsToMany
     {
-        return $this->hasMany(Post::class);
+        return $this->belongsToMany(Post::class);
     }
+
+    // в tags нет колонки post_id, использовать HasMany не корректно
+//    public function posts(): HasMany
+//    {
+//        return $this->hasMany(Post::class);
+//    }
 }

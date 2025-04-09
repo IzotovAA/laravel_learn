@@ -13,6 +13,8 @@ class Category extends Model
     protected $table = 'categories';
     protected $guarded = [];
 
+    // в таблице posts есть столбец category_id поэтому Has
+    // одной категории может принадлежать много постов поэтому HasMany
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
