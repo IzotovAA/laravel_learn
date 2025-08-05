@@ -12,7 +12,7 @@ class BaseController extends Controller
         protected Service $service
     )
     {
-//        $this->middleware('auth');
+        $this->middleware('auth');
 //        $this->middleware('auth:sanctum');
     }
 }
